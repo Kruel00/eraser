@@ -1,0 +1,15 @@
+{
+    "files.associations": {
+        "common.h": "c",
+        "gui.h": "c",
+        "storage_devices.h": "c",
+        "stdlib.h": "c",
+        "ioctl.h": "c",
+        "stdio.h": "c",
+        "gtk.h": "c",
+        "errno.h": "c",
+        "config.h": "c",
+        "limits.h": "c",
+        "blkid.h": "c"
+    }
+}
