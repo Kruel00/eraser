@@ -1,0 +1,31 @@
+{
+  "validateTicket" : false,
+  "generateTicket" : false,
+  "receiveOnly" : true,
+  "customerCode" : null,
+  "hwid" : null,
+  "cpu" : null,
+  "mlb" : null,
+  "brandCode" : null,
+  "arch" : null,
+  "sku" : null,
+  "serialNumber" : "à@\b–øU",
+  "identifier" : "EraseModule",
+  "username" : "",
+  "assetId" : null,
+  "version" : null,
+  "memory" : null,
+  "storage" : 1,
+  "area" : null,
+  "testResults" : {
+  },
+  "vpd" : {
+    "DevicePath" : "\u0001",
+    "Vendor" : "\u0018½c—ý\u007f",
+    "Capacity" : "0.00 GB",
+    "BusType" : "",
+    "EraseResult" : "success"
+  },
+  "findings" : [
+  ]
+}

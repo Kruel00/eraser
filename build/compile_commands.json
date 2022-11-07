@@ -1,0 +1,57 @@
+[
+{
+  "directory": "/media/jcastorena/files/dev/C/eraser/build",
+  "command": "/usr/bin/gcc  -I/media/jcastorena/files/dev/C/eraser/include -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/include/gtk-3.0 -I/usr/include/at-spi2-atk/2.0 -I/usr/include/at-spi-2.0 -I/usr/include/dbus-1.0 -I/usr/lib/x86_64-linux-gnu/dbus-1.0/include -I/usr/include/gio-unix-2.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/fribidi -I/usr/include/harfbuzz -I/usr/include/atk-1.0 -I/usr/include/pixman-1 -I/usr/include/uuid -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/json-glib-1.0 -g -o CMakeFiles/eraser.dir/main.c.o -c /media/jcastorena/files/dev/C/eraser/main.c",
+  "file": "/media/jcastorena/files/dev/C/eraser/main.c"
+},
+{
+  "directory": "/media/jcastorena/files/dev/C/eraser/build",
+  "command": "/usr/bin/gcc  -I/media/jcastorena/files/dev/C/eraser/include -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/include/gtk-3.0 -I/usr/include/at-spi2-atk/2.0 -I/usr/include/at-spi-2.0 -I/usr/include/dbus-1.0 -I/usr/lib/x86_64-linux-gnu/dbus-1.0/include -I/usr/include/gio-unix-2.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/fribidi -I/usr/include/harfbuzz -I/usr/include/atk-1.0 -I/usr/include/pixman-1 -I/usr/include/uuid -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/json-glib-1.0 -g -o CMakeFiles/eraser.dir/erase_log.c.o -c /media/jcastorena/files/dev/C/eraser/erase_log.c",
+  "file": "/media/jcastorena/files/dev/C/eraser/erase_log.c"
+},
+{
+  "directory": "/media/jcastorena/files/dev/C/eraser/build",
+  "command": "/usr/bin/gcc  -I/media/jcastorena/files/dev/C/eraser/include -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/include/gtk-3.0 -I/usr/include/at-spi2-atk/2.0 -I/usr/include/at-spi-2.0 -I/usr/include/dbus-1.0 -I/usr/lib/x86_64-linux-gnu/dbus-1.0/include -I/usr/include/gio-unix-2.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/fribidi -I/usr/include/harfbuzz -I/usr/include/atk-1.0 -I/usr/include/pixman-1 -I/usr/include/uuid -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/json-glib-1.0 -g -o CMakeFiles/eraser.dir/build_device.c.o -c /media/jcastorena/files/dev/C/eraser/build_device.c",
+  "file": "/media/jcastorena/files/dev/C/eraser/build_device.c"
+},
+{
+  "directory": "/media/jcastorena/files/dev/C/eraser/build",
+  "command": "/usr/bin/gcc  -I/media/jcastorena/files/dev/C/eraser/include -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/include/gtk-3.0 -I/usr/include/at-spi2-atk/2.0 -I/usr/include/at-spi-2.0 -I/usr/include/dbus-1.0 -I/usr/lib/x86_64-linux-gnu/dbus-1.0/include -I/usr/include/gio-unix-2.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/fribidi -I/usr/include/harfbuzz -I/usr/include/atk-1.0 -I/usr/include/pixman-1 -I/usr/include/uuid -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/json-glib-1.0 -g -o CMakeFiles/eraser.dir/sg_io_linux.c.o -c /media/jcastorena/files/dev/C/eraser/sg_io_linux.c",
+  "file": "/media/jcastorena/files/dev/C/eraser/sg_io_linux.c"
+},
+{
+  "directory": "/media/jcastorena/files/dev/C/eraser/build",
+  "command": "/usr/bin/gcc  -I/media/jcastorena/files/dev/C/eraser/include -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/include/gtk-3.0 -I/usr/include/at-spi2-atk/2.0 -I/usr/include/at-spi-2.0 -I/usr/include/dbus-1.0 -I/usr/lib/x86_64-linux-gnu/dbus-1.0/include -I/usr/include/gio-unix-2.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/fribidi -I/usr/include/harfbuzz -I/usr/include/atk-1.0 -I/usr/include/pixman-1 -I/usr/include/uuid -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/json-glib-1.0 -g -o CMakeFiles/eraser.dir/sg_cmds.c.o -c /media/jcastorena/files/dev/C/eraser/sg_cmds.c",
+  "file": "/media/jcastorena/files/dev/C/eraser/sg_cmds.c"
+},
+{
+  "directory": "/media/jcastorena/files/dev/C/eraser/build",
+  "command": "/usr/bin/gcc  -I/media/jcastorena/files/dev/C/eraser/include -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/include/gtk-3.0 -I/usr/include/at-spi2-atk/2.0 -I/usr/include/at-spi-2.0 -I/usr/include/dbus-1.0 -I/usr/lib/x86_64-linux-gnu/dbus-1.0/include -I/usr/include/gio-unix-2.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/fribidi -I/usr/include/harfbuzz -I/usr/include/atk-1.0 -I/usr/include/pixman-1 -I/usr/include/uuid -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/json-glib-1.0 -g -o CMakeFiles/eraser.dir/sg_pt_linux.c.o -c /media/jcastorena/files/dev/C/eraser/sg_pt_linux.c",
+  "file": "/media/jcastorena/files/dev/C/eraser/sg_pt_linux.c"
+},
+{
+  "directory": "/media/jcastorena/files/dev/C/eraser/build",
+  "command": "/usr/bin/gcc  -I/media/jcastorena/files/dev/C/eraser/include -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/include/gtk-3.0 -I/usr/include/at-spi2-atk/2.0 -I/usr/include/at-spi-2.0 -I/usr/include/dbus-1.0 -I/usr/lib/x86_64-linux-gnu/dbus-1.0/include -I/usr/include/gio-unix-2.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/fribidi -I/usr/include/harfbuzz -I/usr/include/atk-1.0 -I/usr/include/pixman-1 -I/usr/include/uuid -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/json-glib-1.0 -g -o CMakeFiles/eraser.dir/sg_lib.c.o -c /media/jcastorena/files/dev/C/eraser/sg_lib.c",
+  "file": "/media/jcastorena/files/dev/C/eraser/sg_lib.c"
+},
+{
+  "directory": "/media/jcastorena/files/dev/C/eraser/build",
+  "command": "/usr/bin/gcc  -I/media/jcastorena/files/dev/C/eraser/include -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/include/gtk-3.0 -I/usr/include/at-spi2-atk/2.0 -I/usr/include/at-spi-2.0 -I/usr/include/dbus-1.0 -I/usr/lib/x86_64-linux-gnu/dbus-1.0/include -I/usr/include/gio-unix-2.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/fribidi -I/usr/include/harfbuzz -I/usr/include/atk-1.0 -I/usr/include/pixman-1 -I/usr/include/uuid -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/json-glib-1.0 -g -o CMakeFiles/eraser.dir/gui.c.o -c /media/jcastorena/files/dev/C/eraser/gui.c",
+  "file": "/media/jcastorena/files/dev/C/eraser/gui.c"
+},
+{
+  "directory": "/media/jcastorena/files/dev/C/eraser/build",
+  "command": "/usr/bin/gcc  -I/media/jcastorena/files/dev/C/eraser/include -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/include/gtk-3.0 -I/usr/include/at-spi2-atk/2.0 -I/usr/include/at-spi-2.0 -I/usr/include/dbus-1.0 -I/usr/lib/x86_64-linux-gnu/dbus-1.0/include -I/usr/include/gio-unix-2.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/fribidi -I/usr/include/harfbuzz -I/usr/include/atk-1.0 -I/usr/include/pixman-1 -I/usr/include/uuid -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/json-glib-1.0 -g -o CMakeFiles/eraser.dir/leak_memory.c.o -c /media/jcastorena/files/dev/C/eraser/leak_memory.c",
+  "file": "/media/jcastorena/files/dev/C/eraser/leak_memory.c"
+},
+{
+  "directory": "/media/jcastorena/files/dev/C/eraser/build",
+  "command": "/usr/bin/gcc  -I/media/jcastorena/files/dev/C/eraser/include -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/include/gtk-3.0 -I/usr/include/at-spi2-atk/2.0 -I/usr/include/at-spi-2.0 -I/usr/include/dbus-1.0 -I/usr/lib/x86_64-linux-gnu/dbus-1.0/include -I/usr/include/gio-unix-2.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/fribidi -I/usr/include/harfbuzz -I/usr/include/atk-1.0 -I/usr/include/pixman-1 -I/usr/include/uuid -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/json-glib-1.0 -g -o CMakeFiles/eraser.dir/config.c.o -c /media/jcastorena/files/dev/C/eraser/config.c",
+  "file": "/media/jcastorena/files/dev/C/eraser/config.c"
+},
+{
+  "directory": "/media/jcastorena/files/dev/C/eraser/build",
+  "command": "/usr/bin/gcc  -I/media/jcastorena/files/dev/C/eraser/include -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/include/gtk-3.0 -I/usr/include/at-spi2-atk/2.0 -I/usr/include/at-spi-2.0 -I/usr/include/dbus-1.0 -I/usr/lib/x86_64-linux-gnu/dbus-1.0/include -I/usr/include/gio-unix-2.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/fribidi -I/usr/include/harfbuzz -I/usr/include/atk-1.0 -I/usr/include/pixman-1 -I/usr/include/uuid -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/json-glib-1.0 -g -o CMakeFiles/eraser.dir/erase_device.c.o -c /media/jcastorena/files/dev/C/eraser/erase_device.c",
+  "file": "/media/jcastorena/files/dev/C/eraser/erase_device.c"
+}
+]
