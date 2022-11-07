@@ -7,6 +7,7 @@ int verbose = 0;
 static struct flags_t oflag;
 static struct stat nvme_stat;
 const char *devicename;
+const int blocks = 128;
 
 uint8_t erasmosign[] = 
     {
@@ -16,47 +17,53 @@ uint8_t erasmosign[] =
     };
 
 
-void *erase_sg_device(void *device_sg)
+int erase_sg_device(storage_device_t sg_erasing_device)
 {
 
-    int blocks, outfd;
-    unsigned char *wrkPos;
-    unsigned char *fprint;
+    int outfd;
+    unsigned char *wrkPos, *fprint;
     long long seek = 1;
     static int blk_sz = 512;
     int scsi_cdbsz_out = DEF_SCSI_CDBSZ;
-    char inf[SG_PATH_SIZE];
     unsigned char *wrkBuff;
     unsigned char *wrkBuff2;
-    char *device_serial = (gchar *)device_sg;
-    storage_device_t sg_erasing_device;
-    GtkTreeIter storage_device_itr;
+
     static int verbose = 0;
-    blocks = 128;
-    int bpt = 128;
+    
     int device_blocks = sg_erasing_device.total_sectors - 1;
     size_t psz = getpagesize();
-    wrkBuff = MALLOC(blk_sz * bpt + psz);
-    wrkBuff2 = MALLOC(512);
-    long long int tfwide = blk_sz * bpt + psz;
+
+    long long int tfwide = blk_sz * blocks + psz;
+    wrkBuff = MALLOC(tfwide);
+    wrkBuff2 = MALLOC(1);
+
     uint8_t data[tfwide];
     int res, k, t, buf_sz, dio_tmp, flags, fl, sg_fd;
-    memset(data, 0x00, sizeof(data));
+
+    //byte to write on disk
+    memset(data, 0x83, sizeof(data));
+    
     wrkPos = wrkBuff;
     memcpy(wrkPos, &data, sizeof(data));
+
+    free(fprint);
+
+    
     fprint = wrkBuff2;
     memcpy(fprint, &erasmosign, sizeof(erasmosign));
 
     // open device.
-    if ((outfd = sg_cmds_open_device(inf, 1, verbose)) < 0)
+    if ((outfd = sg_cmds_open_device(sg_erasing_device.sg_name, 1, verbose)) < 0)
     {
-        fprintf(stderr, ME " Device %s dont exist\n%s\n", inf, safe_strerror(-sg_fd));
+        fprintf(stderr, ME " Device %s dont exist\n%s\n", sg_erasing_device.sg_name, safe_strerror(-sg_fd));
     }
+
     dio_tmp = 0;
     for (long long int i = 1; i < (device_blocks / blocks); i++)
     {
         res = sg_write(outfd, wrkPos, blocks, seek, blk_sz, scsi_cdbsz_out, oflag.fua, oflag.dpo, &dio_tmp);
         seek += blocks;
+        printf("block %lli of %i\n",seek,device_blocks);
     }
 
     int blk_remains = device_blocks - seek;
@@ -67,6 +74,8 @@ void *erase_sg_device(void *device_sg)
         {
             res = sg_write(outfd, wrkPos, 1, seek, blk_sz, scsi_cdbsz_out, oflag.fua, oflag.dpo, &dio_tmp);
             seek++;
+            printf("block %lli of %i\n",seek,device_blocks);
+
         }
     }
 
@@ -92,7 +101,6 @@ void *erase_nvme_device(void *device_nvme)
 
     storage_device_t nvme_erasing_device;
     size_t psz = getpagesize();
-    int bpt = 128;
 
     // write
     __u16 nlb = 0, control = 0;
@@ -104,7 +112,7 @@ void *erase_nvme_device(void *device_nvme)
     find_device_by_serial(device_list, &nvme_erasing_device, device_serial);
     
     bl_sz = 4096;
-    buffer = MALLOC(bl_sz * bpt + psz);
+    buffer = MALLOC(bl_sz * blocks + psz);
     strcpy(inf, nvme_erasing_device.name);
     nvme_open_dev(inf);
 

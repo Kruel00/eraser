@@ -1,7 +1,7 @@
 //
 // Created By: Javier Castorena
 //
-void *erase_sg_device(void *device_sg);
+int erase_sg_device(storage_device_t sg_erasing_device);
 
 static int sg_write(int sg_fd, unsigned char *buff, int blocks, long long to_block, int bs, int cdbsz, int fua, int dpo, int *diop);
 static int nvme_open_dev(const char *dev);

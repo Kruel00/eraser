@@ -12,7 +12,7 @@
 const char *readLine(FILE *file);
 
 void load_config(eraser_config_t *const config){
-    printf("Loading config..\n");
+    printf("Loading config: ");
     gchar config_text[1024];
     char cwd[PATH_MAX];
     getcwd(cwd,sizeof(cwd));
@@ -32,9 +32,15 @@ void load_config(eraser_config_t *const config){
         strcpy(config->log_server,server_log);
         strcpy(config->wifi_ssid,wifi_ssid);
         strcpy(config->wifi_pass,wifi_pass);
+
+        printf("\033[0;34m");
+        printf("PASS\n");
+        printf("\033[0m");
     }
     else{
-
+        printf("\033[0;31m");
+        printf("FAIL\n");
+        printf("\033[0m");
     }
 }
 

@@ -26,7 +26,7 @@
 #define DEF_TIMEOUT 60000 /* 60,000 millisecs == 60 seconds */
 #define MAX_SCSI_CDBSZ 16
 #define SENSE_BUFF_LEN 64 /* Arbitrary, could be larger */
-#define ME "erasmo"
+#define ME "Quantum"
 #define SG_DD_BYPASS 999 /* failed but coe set */
 #define SG_PATH_SIZE 512
 #define DEF_SCSI_CDBSZ 10

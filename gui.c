@@ -6,7 +6,7 @@
 
 void alert(gchar *msg)
 {
-    GtkWidget* hello = gtk_message_dialog_new(NULL, GTK_DIALOG_MODAL, GTK_MESSAGE_INFO, GTK_BUTTONS_OK, "Erasmo");
+    GtkWidget* hello = gtk_message_dialog_new(NULL, GTK_DIALOG_MODAL, GTK_MESSAGE_INFO, GTK_BUTTONS_OK, "Quantum");
     gtk_message_dialog_format_secondary_text(GTK_MESSAGE_DIALOG(hello),"%s", msg);
     int response = gtk_dialog_run(GTK_DIALOG(hello));
     
@@ -32,6 +32,6 @@ int erase_confirm(){
 
 void show_help(){
     GtkWidget* help_dialog = gtk_message_dialog_new(NULL, GTK_DIALOG_MODAL, GTK_MESSAGE_INFO, GTK_BUTTONS_OK, "Quantum");
-    gtk_message_dialog_format_secondary_text(GTK_MESSAGE_DIALOG(help_dialog),"Ayuda del erasmo\n\t-Device path:/dev/<device>\n\t-Device type:\n\t\t1=SATA\n\t\t2=USB\n\t\t3=NVME\n\t\t4=MMC");
+    gtk_message_dialog_format_secondary_text(GTK_MESSAGE_DIALOG(help_dialog),"Quantum Help\n\t App_name   /dev/<device>\n");
     int response = gtk_dialog_run(GTK_DIALOG(help_dialog));
 }

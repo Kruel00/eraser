@@ -13,7 +13,6 @@
 
 #include "common.h"
 
-#define ME "erasmo"
 #define INOUTF_SZ 512
 #define bool _Bool
 #define false 0
@@ -460,4 +459,25 @@ void set_dev_gb(storage_device_t *const device){
 
 void sig_inserted(GtkTreeModel *model, GtkTreePath *path, GtkTreeIter *iter){
     
+}
+
+
+void find_device_by_name(storage_device_list_t device_list, storage_device_t *const device, gchar *const device_name)
+{
+    for (int dev_num = 0; dev_num < device_list.count; dev_num++)
+    {
+        if (strcmp(device_list.device[dev_num].name, device_name) == 0){
+            device->sector_size = device_list.device[dev_num].sector_size;
+            strcpy(device->vendor,device_list.device[dev_num].vendor);
+            strcpy(device->name,device_list.device[dev_num].name);
+            strcpy(device->serial,device_list.device[dev_num].serial);
+            strcpy(device->bus,device_list.device[dev_num].bus);
+            strcpy(device->model,device_list.device[dev_num].model);
+            device->total_sectors = device_list.device[dev_num].total_sectors;
+            strcpy(device->sg_name,device_list.device[dev_num].sg_name);
+			device->type = device_list.device[dev_num].type;
+			strcpy(device->nvme_short_name,device_list.device[dev_num].nvme_short_name);
+        }
+		//printf("DATO: %s\n",device_list.device[dev_num].name);
+    }
 }
