@@ -177,8 +177,6 @@ int upload_erase_test_result(storage_device_t erase_info)
     gchar json_log_file_name[1024];
     g_snprintf(json_log_file_name, G_N_ELEMENTS(erase_info.serial), "%s.json", erase_info.serial);
 
-    // https://stackoverflow.com/questions/3747086/reading-the-whole-text-file-into-a-char-array-in-c
-
     FILE *fp;
     long lSize;
     char *buffer;
@@ -191,7 +189,7 @@ int upload_erase_test_result(storage_device_t erase_info)
     buffer = (char*)calloc(lSize, sizeof(char));   
     fread(buffer, sizeof(char), lSize, fp);
     
-    /*
+    
     char *token;
     if(login(&token))
     {
@@ -210,9 +208,9 @@ int upload_erase_test_result(storage_device_t erase_info)
         free(token);
         return -1;
     }
-    */
+    
     free(buffer);
-    //free(token);
+    free(token);
 }
 
 

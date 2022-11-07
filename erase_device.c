@@ -9,7 +9,7 @@ static struct stat nvme_stat;
 const char *devicename;
 const int blocks = 128;
 
-uint8_t erasmosign[] = 
+static uint8_t erasmosign[] = 
     {
     0x51, 0x75, 0x61, 0x6E, 0x74, 0x75, 0x6D, 0x20, 0x65, 0x72, 0x61, 0x73,
     0x6D, 0x6F, 0x28, 0x52, 0x29, 0x20, 0x62, 0x79, 0x20, 0x4D, 0x6F, 0x62,
@@ -21,72 +21,67 @@ int erase_sg_device(storage_device_t sg_erasing_device)
 {
 
     int outfd;
-    unsigned char *wrkPos, *fprint;
-    long long seek = 1;
+    unsigned char *wrkPos;
+    unsigned char fprint[36];
+    long long seek = 0;
     static int blk_sz = 512;
     int scsi_cdbsz_out = DEF_SCSI_CDBSZ;
     unsigned char *wrkBuff;
     unsigned char *wrkBuff2;
 
     static int verbose = 0;
-    
     int device_blocks = sg_erasing_device.total_sectors - 1;
     size_t psz = getpagesize();
 
     long long int tfwide = blk_sz * blocks + psz;
     wrkBuff = MALLOC(tfwide);
-    wrkBuff2 = MALLOC(1);
+    wrkBuff2 = MALLOC(blk_sz);
 
     uint8_t data[tfwide];
     int res, k, t, buf_sz, dio_tmp, flags, fl, sg_fd;
 
-    //byte to write on disk
-    memset(data, 0x83, sizeof(data));
     
+    memset(data, 0x00, sizeof(data));
+    //byte to write^ on disk
+
     wrkPos = wrkBuff;
     memcpy(wrkPos, &data, sizeof(data));
 
-    free(fprint);
-
-    
-    fprint = wrkBuff2;
-    memcpy(fprint, &erasmosign, sizeof(erasmosign));
-
     // open device.
-    if ((outfd = sg_cmds_open_device(sg_erasing_device.sg_name, 1, verbose)) < 0)
+    if ((outfd = sg_cmds_open_device(sg_erasing_device.sg_name, 0, verbose)) < 0)
     {
         fprintf(stderr, ME " Device %s dont exist\n%s\n", sg_erasing_device.sg_name, safe_strerror(-sg_fd));
     }
 
     dio_tmp = 0;
-    for (long long int i = 1; i < (device_blocks / blocks); i++)
+    for (long long int i = 0; i < (device_blocks / blocks); i++)
     {
         res = sg_write(outfd, wrkPos, blocks, seek, blk_sz, scsi_cdbsz_out, oflag.fua, oflag.dpo, &dio_tmp);
         seek += blocks;
+        //printf("res: %i\n",res);
         printf("block %lli of %i\n",seek,device_blocks);
+        //printf("%s\n",sg_erasing_device.sg_name);
     }
 
     int blk_remains = device_blocks - seek;
     if (seek > 0)
     {
-
-        for (int i = 1; i < blk_remains + 2; i++)
+        for (int i = 0; i < blk_remains; i++)
         {
             res = sg_write(outfd, wrkPos, 1, seek, blk_sz, scsi_cdbsz_out, oflag.fua, oflag.dpo, &dio_tmp);
             seek++;
             printf("block %lli of %i\n",seek,device_blocks);
-
         }
     }
 
-    res = sg_write(outfd, fprint, 1, 0, blk_sz, scsi_cdbsz_out, oflag.fua, oflag.dpo, &dio_tmp);
+    //print sign
+    //res = sg_write(outfd, erasmosign, 1, 0, blk_sz, scsi_cdbsz_out, oflag.fua, oflag.dpo, &dio_tmp);
 
     json_save(sg_erasing_device);
     upload_erase_test_result(sg_erasing_device);
 
     free(wrkBuff);
     free(wrkBuff2);
-
     return 0;
 }
 

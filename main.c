@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include "common.h"
 
-//#define DEBUG
+#define DEBUG
 
 #define YES -8
 #define NOT -9
@@ -71,6 +71,8 @@ int main(int argc, char** argv)
 
     find_device_by_name(device_list, &working_device, argv[1]);
 
+    //device
+    printf("Device: %s\n",argv[1]);
     if(strlen(working_device.name) < 1){
         show_test_result("Load storage info: ", 1);
         alert("Device not found!");
@@ -97,7 +99,7 @@ int main(int argc, char** argv)
             printf("USB\n");
             if(erase_confirm() == YES)
                 if(erase_confirm() == YES){
-                     printf("BORRAR");
+                     printf("BORRAR\n");
                      erase_sg_device(working_device);
                 }
             break;

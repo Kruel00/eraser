@@ -9,8 +9,11 @@
             "request": "launch",
             "name": "Debug",
             "program": "${workspaceFolder}/build/eraser",
-            "args": [],
-            "cwd": "${workspaceFolder}"
+            "args": [
+                "/dev/sdf"
+            ],
+            "cwd": "${workspaceFolder}",
+            "sudo": true
         }
     ]
 }
