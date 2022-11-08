@@ -189,7 +189,7 @@ int upload_erase_test_result(storage_device_t erase_info)
     buffer = (char*)calloc(lSize, sizeof(char));   
     fread(buffer, sizeof(char), lSize, fp);
     
-    
+
     char *token;
     if(login(&token))
     {
@@ -208,7 +208,7 @@ int upload_erase_test_result(storage_device_t erase_info)
         free(token);
         return -1;
     }
-    
+   
     free(buffer);
     free(token);
 }

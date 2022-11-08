@@ -20,7 +20,7 @@
   "testResults" : {
   },
   "vpd" : {
-    "DevicePath" : "/dev/sde",
+    "DevicePath" : "/dev/sdd",
     "Vendor" : "Generic",
     "Capacity" : "0.25 GB",
     "BusType" : "usb",

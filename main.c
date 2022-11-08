@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include "common.h"
 
-#define DEBUG
+//#define DEBUG
 
 #define YES -8
 #define NOT -9
@@ -25,9 +25,10 @@
         printf("\033[0;32m");
         printf("RELEASE\n");
         printf("\033[0m");
-        printf("numero de argumentos: %i\n",argc);
-        if(argc < 2)
-        show_help();
+        if(argc < 2){
+            show_help();
+            exit(1);
+        }
     }
 
     bool debug_mode = false;
@@ -107,11 +108,16 @@ int main(int argc, char** argv)
             printf("NVME");
         break;
         case MMC:
-            printf("MMC");
+        if(erase_confirm() == YES)
+                if(erase_confirm() == YES){
+                     printf("BORRAR\n");
+                     erase_sg_device(working_device);
+                }
+            //printf("MMC");
         break;
         default:
             printf("NO COMPATIBLE");
-        break;
+        break;  
     }
     }
 }
