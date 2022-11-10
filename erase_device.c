@@ -16,9 +16,11 @@ static uint8_t firma[] =
     0x69, 0x6C, 0x69, 0x74, 0x79, 0x20, 0x54, 0x65, 0x61, 0x6D, 0x0a, 0x0a
     };
 
-int erase_sg_device(storage_device_t sg_erasing_device)
+
+void *erase_sg_device(void *device)
 {
 
+    storage_device_t *sg_erasing_device = (storage_device_t *)device;
     int outfd;
     unsigned char *wrkPos;
     unsigned char fprint[36];
@@ -27,7 +29,7 @@ int erase_sg_device(storage_device_t sg_erasing_device)
     int scsi_cdbsz_out = DEF_SCSI_CDBSZ;
     unsigned char *wrkBuff, *oneSecBuff;
     static int verbose = 0;
-    int device_blocks = sg_erasing_device.total_sectors;
+    int device_blocks = sg_erasing_device->total_sectors;
 
     size_t psz = getpagesize();
     long long int tfwide = blk_sz * blocks + psz;
@@ -53,41 +55,35 @@ int erase_sg_device(storage_device_t sg_erasing_device)
     memcpy(wrkPos, &data, sizeof(data));
 
     // open device.
-    if ((outfd = sg_cmds_open_device(sg_erasing_device.sg_name, 0, verbose)) < 0)
+    if ((outfd = sg_cmds_open_device(sg_erasing_device->sg_name, 0, verbose)) < 0)
     {
-        fprintf(stderr, ME " Device %s dont exist\n%s\n", sg_erasing_device.sg_name, safe_strerror(-sg_fd));
+        fprintf(stderr, ME " Device %s dont exist\n%s\n", sg_erasing_device->sg_name, safe_strerror(-sg_fd));
     }
 
     for (long long int i = 0; i < (device_blocks / blocks) - 1; i++)
     {
         res = sg_write(outfd, wrkPos, blocks, seek, blk_sz, scsi_cdbsz_out, oflag.fua, oflag.dpo, &dio_tmp);
         seek += blocks;
-
-        printf("block %lli of %i\n",seek,device_blocks);
+        system("clear");
+        printf("%lli sectors of %i\n",seek,device_blocks);
     }
 
-    printf("Bloques sobrantes: %lli\n",sg_erasing_device.total_sectors - seek);
-    int remain_sectors = sg_erasing_device.total_sectors - seek;
+    int remain_sectors = sg_erasing_device->total_sectors - seek;
 
-        
     if (remain_sectors > 0)
     {
         for (int i = 0; i <= remain_sectors; i++)
         {
             res = sg_write(outfd, oneSec, 1, seek, blk_sz, scsi_cdbsz_out, oflag.fua, oflag.dpo, &dio_tmp);
-            printf("block %lli of %i\n",seek,device_blocks);
+            system("clear");
+            printf("%lli sectors of %i\n",seek,device_blocks);
             seek++;
         }
          
     }
 
     res = sg_write(outfd, erasmosign, 1, 0, blk_sz, scsi_cdbsz_out, oflag.fua, oflag.dpo, &dio_tmp);
-    
-    json_save(sg_erasing_device);
-    //upload_erase_test_result(sg_erasing_device);
-
     free(wrkBuff);
-    return 0;
 }
 
 // erase nvme device

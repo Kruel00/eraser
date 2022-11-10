@@ -54,7 +54,7 @@ include_directories(
 target_link_libraries(${PROJECT_NAME}
     ${JSON-GLIB_LIBRARIES}
     ${GLIB_LIBRARIES}
-#    ${CMAKE_THREAD_LIBS_INIT}
+    ${CMAKE_THREAD_LIBS_INIT}
     ${BLKID_LIBRARIES}
     ${UDEV_LIBRARIES}
     ${GTK3_LIBRARIES}

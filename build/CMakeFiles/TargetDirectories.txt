@@ -1,3 +1,0 @@
-/media/jcastorena/files/dev/C/eraser/build/CMakeFiles/edit_cache.dir
-/media/jcastorena/files/dev/C/eraser/build/CMakeFiles/rebuild_cache.dir
-/media/jcastorena/files/dev/C/eraser/build/CMakeFiles/eraser.dir

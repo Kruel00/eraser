@@ -38,6 +38,7 @@ void show_test_result(char msg[64], int t);
 
 storage_device_list_t device_list;
 storage_device_t working_device;
+pthread_t sg_eraser_th, nvme_eraser_th;
 bool load_device_info = false;
 enum{
         SATA,
@@ -49,7 +50,6 @@ enum{
 
 int main(int argc, char** argv)
 {
-
     char *device_serial;
     gtk_init(&argc, &argv);
     show_message(argc, argv);
@@ -59,8 +59,7 @@ int main(int argc, char** argv)
     eraser_config_t general_config;
     init_general_config(&general_config);
     load_config(&general_config);
-
-    printf("numero de argumentos: %i\n",argc);
+    bool acept_erase = false;
 
     if (detect_storage_devices(&device_list) == 0)
     {   
@@ -98,11 +97,21 @@ int main(int argc, char** argv)
             break;
         case USB:
             printf("USB\n");
-            if(erase_confirm() == YES)
+            if(erase_confirm() == YES){
                 if(erase_confirm() == YES){
-                     printf("BORRAR\n");
-                     erase_sg_device(working_device);
+                    acept_erase = true;       
                 }
+            }
+            
+            if(acept_erase){
+                if (pthread_create(&sg_eraser_th, NULL, erase_sg_device, &working_device) != 0){
+                    return 1;
+                }
+                pthread_join(sg_eraser_th,NULL);
+                json_save(working_device);
+                upload_erase_test_result(working_device);
+            }
+
             break;
         case NVME:
             printf("NVME");
@@ -111,9 +120,9 @@ int main(int argc, char** argv)
         if(erase_confirm() == YES)
                 if(erase_confirm() == YES){
                      printf("BORRAR\n");
-                     erase_sg_device(working_device);
+                     erase_sg_device(&working_device);
                 }
-            //printf("MMC");
+            printf("MMC");
         break;
         default:
             printf("NO COMPATIBLE");
